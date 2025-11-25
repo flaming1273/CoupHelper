@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Coup: The Rebellion Helper</title>
+<style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    h2 { margin-top: 30px; }
+
+    .card-display {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-top: 20px;
+    }
+    .card {
+        border: 1px solid #ccc;
+        padding: 10px;
+        width: 200px;
+        background: #fafafa;
+    }
+    .card img { width: 100%; }
+
+    .category {
+        border: 1px solid #aaa;
+        margin-bottom: 10px;
+        border-radius: 5px;
+    }
+    .category-header {
+        background: #ddd;
+        padding: 10px;
+        cursor: pointer;
+        user-select: none;
+        font-weight: bold;
+    }
+    .category-content {
+        display: none;
+        padding: 10px;
+    }
+</style>
+</head>
+<body>
+
+<h1>Coup: The Rebellion — Character Selector</h1>
+
+<button id="randomButton">Randomize Characters</button>
+
+<h2>Selected Characters</h2>
+<div id="selectedCards" class="card-display"></div>
+
+<h2>Manually Choose Characters</h2>
+<div id="checkboxContainer"></div>
+
+<script type="module">
+const CATEGORY_ORDER = [
+    "economy",
+    "communications",
+    "force",
+    "special interests"
+];
+
+let allCards = [];
+let selected = new Set();
+
+// Load your cards.json file
+fetch("cards.json")
+    .then(r => r.json())
+    .then(data => {
+        allCards = data.cards;
+        renderCheckboxes();
+    });
+
+function renderCheckboxes() {
+    const container = document.getElementById("checkboxContainer");
+    container.innerHTML = "";
+
+    CATEGORY_ORDER.forEach(cat => {
+        const section = document.createElement("div");
+        section.className = "category";
+
+        const header = document.createElement("div");
+        header.className = "category-header";
+
+        const title = document.createElement("span");
+        title.textContent = cat.toUpperCase();
+
+        const rerollBtn = document.createElement("button");
+        rerollBtn.textContent = "↻ Reroll";
+        rerollBtn.style.float = "right";
+        rerollBtn.onclick = (event) => {
+            event.stopPropagation(); // prevent collapse toggle
+            rerollCategory(cat);
+        };
+
+        header.appendChild(title);
+        header.appendChild(rerollBtn);
+
+        const content = document.createElement("div");
+        content.className = "category-content";
+
+        header.onclick = () => {
+            content.style.display = content.style.display === "none" ? "block" : "none";
+        };
+
+        // Create checkboxes
+        allCards
+            .filter(c => c.category === cat)
+            .forEach(card => {
+                const label = document.createElement("label");
+                const check = document.createElement("input");
+                check.type = "checkbox";
+                check.value = card.name;
+                check.onchange = () => {
+                    if (check.checked) selected.add(card.name);
+                    else selected.delete(card.name);
+                    updateSelectedDisplay();
+                };
+                label.appendChild(check);
+                label.append(" " + card.name);
+                content.appendChild(label);
+                content.appendChild(document.createElement("br"));
+            });
+
+        section.appendChild(header);
+        section.appendChild(content);
+        container.appendChild(section);
+    });
+}
+
+function updateSelectedDisplay() {
+    const display = document.getElementById("selectedCards");
+    display.innerHTML = "";
+
+    allCards
+        .filter(c => selected.has(c.name))
+        .forEach(card => {
+            const div = document.createElement("div");
+            div.className = "card";
+
+            const img = document.createElement("img");
+            img.src = card.image;
+
+            const txt = document.createElement("div");
+            txt.innerHTML = `<strong>${card.name}</strong><br>
+                             <em>${card.category}</em><br>
+                             ${card.description}`;
+
+            div.appendChild(img);
+            div.appendChild(txt);
+            display.appendChild(div);
+        });
+}
+
+document.getElementById("randomButton").onclick = () => {
+    selected.clear();
+
+    CATEGORY_ORDER.forEach(cat => {
+        const cardsInCat = allCards.filter(c => c.category === cat);
+
+        if (cardsInCat.length === 0) return;
+
+        if (cat === "special interests") {
+            // Pick TWO different random cards
+            const picks = [...cardsInCat]
+                .sort(() => Math.random() - 0.5)
+                .slice(0, 2);
+
+            picks.forEach(card => selected.add(card.name));
+
+        } else {
+            // Pick ONE card for other categories
+            const random = cardsInCat[Math.floor(Math.random() * cardsInCat.length)];
+            selected.add(random.name);
+        }
+    });
+
+    // Update checkbox UI
+    document.querySelectorAll("#checkboxContainer input[type=checkbox]").forEach(cb => {
+        cb.checked = selected.has(cb.value);
+    });
+
+    updateSelectedDisplay();
+};
+
+function rerollCategory(cat) {
+    // Remove previous selections from this category
+    allCards
+        .filter(c => c.category === cat)
+        .forEach(c => selected.delete(c.name));
+
+    const cardsInCat = allCards.filter(c => c.category === cat);
+
+    if (cat === "special interests") {
+        // Pick TWO unique random cards
+        const picks = [...cardsInCat]
+            .sort(() => Math.random() - 0.5)
+            .slice(0, 2);
+
+        picks.forEach(c => selected.add(c.name));
+    } else {
+        // Pick ONE random card
+        const pick = cardsInCat[Math.floor(Math.random() * cardsInCat.length)];
+        selected.add(pick.name);
+    }
+
+    // Update checkboxes to match new selection
+    document.querySelectorAll("#checkboxContainer input[type=checkbox]").forEach(cb => {
+        cb.checked = selected.has(cb.value);
+    });
+
+    updateSelectedDisplay();
+}
+</script>
+
+</body>
+</html>
