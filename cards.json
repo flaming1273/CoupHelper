@@ -4,61 +4,61 @@
         "name": "Communist",
         "category": "special interests",
         "description": "Steal up to 3 coins from the wealthiest target, giving them to the poorest player.",
-        "image": "images/communist.png"
+        "image": "images/communist.JPG"
       },
       {
         "name": "Customs Officer",
         "category": "special interests",
         "description": "Take the 2 Tax tokens. Keep 1, and place the other on a Role card. All other players must pay 1 coin each time they claim that role.",
-        "image": "images/customs-officer.png"
+        "image": "images/customs-officer.JPG"
       },
       {
         "name": "Foreign Consular",
         "category": "special interests",
         "description": "Take the 2 Treaty tokens. Keep 1, then give the other to another player of your choice. These two players become allies, and cannot target one another, even by Coup.",
-        "image": "images/foreign-consular.png"
+        "image": "images/foreign-consular.JPG"
       },
       {
         "name": "Intellectual",
         "category": "special interests",
         "description": "Following a loss of influence, Intellectual takes 5 coins from Treasury. Successful challenge results in loss of another influence. Unsuccessful challenge results in challenger losing 1 influence.",
-        "image": "images/intellectual.png"
+        "image": "images/intellectual.JPG"
       },
       {
         "name": "Lawyer",
         "category": "special interests",
         "description": "Claim all the coins of a player who is eliminated from the game.",
-        "image": "images/lawyer.png"
+        "image": "images/lawyer.JPG"
       },
       {
         "name": "Missionary",
         "category": "special interests",
         "description": "Following a loss of influence (except by Coup), Missionary takes 1 card from Court. Successful challenge results in loss of second influence. Unsuccessful challenge results in challenger losing 1 influence.",
-        "image": "images/missionary.png"
+        "image": "images/missionary.JPG"
       },
       {
         "name": "Peace Keeper",
         "category": "special interests",
         "description": "Take 1 coin and the Peacekeeper token. Holder of this token cannot be targeted except by Coup.",
-        "image": "images/peace-keeper.png"
+        "image": "images/peace-keeper.JPG"
       },
       {
         "name": "Politician",
         "category": "special interests",
         "description": "Steal up to 2 coins from a chosen target.",
-        "image": "images/politician.png"
+        "image": "images/politician.JPG"
       },
       {
         "name": "Priest",
         "category": "special interests",
         "description": "All other players must give Priest 1 coin (if able).",
-        "image": "images/priest.png"
+        "image": "images/priest.JPG"
       },
       {
         "name": "Protestor",
         "category": "special interests",
         "description": "Pay 2 coins, select a target. Any other player may then pay 3 coins to force the target to lose 1 influence.",
-        "image": "images/protestor.png"
+        "image": "images/protestor.JPG"
       },
   
       
@@ -66,31 +66,31 @@
         "name": "Director",
         "category": "communications",
         "description": "Draw 2 cards from Court, return any 2 cards to the Court.",
-        "image": "images/director.png"
+        "image": "images/director.JPG"
       },
       {
         "name": "Newscaster",
         "category": "communications",
         "description": "Pay 1 coin to take 3 cards from the Court, then return any 3 cards to the Court.",
-        "image": "images/newscaster.png"
+        "image": "images/newscaster.JPG"
       },
       {
         "name": "Producer",
         "category": "communications",
         "description": "Take 1 card from Court and 1 from any target (target’s choice). Return any 1 card to court and target.",
-        "image": "images/producer.png"
+        "image": "images/producer.JPG"
       },
       {
         "name": "Reporter",
         "category": "communications",
         "description": "Take one coin from Treasury and draw 1 card from the Court, then return any card to Court.",
-        "image": "images/reporter.png"
+        "image": "images/reporter.JPG"
       },
       {
         "name": "Writer",
         "category": "communications",
         "description": "Draw 1 card from the Court, then if desired, pay 1 coin to draw another. Return the same number of cards to Court.",
-        "image": "images/writer.png"
+        "image": "images/writer.JPG"
       },
   
       
@@ -98,31 +98,31 @@
         "name": "Banker",
         "category": "economy",
         "description": "Take 3 coins from Treasury.",
-        "image": "images/banker.png"
+        "image": "images/banker.JPG"
       },
       {
         "name": "Capitalist",
         "category": "economy",
         "description": "Take 4 coins from Treasury. All other players may claim Capitalist. After resolving challenges, pay 1 coin.",
-        "image": "images/capitalist.png"
+        "image": "images/capitalist.JPG"
       },
       {
         "name": "Farmer",
         "category": "economy",
         "description": "Take 3 coins from Treasury, keep 2 and give 1 to another player.",
-        "image": "images/farmer.png"
+        "image": "images/farmer.JPG"
       },
       {
         "name": "Speculator",
         "category": "economy",
         "description": "Take up to 5 coins from Treasury to double your current coins. If challenged successfully, the challenger receives all of your original coins.",
-        "image": "images/speculator.png"
+        "image": "images/speculator.JPG"
       },
       {
         "name": "Spy",
         "category": "economy",
         "description": "Take 1 coin from Treasury, then take a second action of your choice. If you reach 10 coins after the first action, the second action must be a Coup.",
-        "image": "images/spy.png"
+        "image": "images/spy.JPG"
       },
   
       
@@ -130,31 +130,31 @@
         "name": "Crime Boss",
         "category": "force",
         "description": "Select a target. The target may pay you 2 coins to end your turn. Otherwise, pay 5 coins and the target loses 1 influence.",
-        "image": "images/crime-boss.png"
+        "image": "images/crime-boss.JPG"
       },
       {
         "name": "General",
         "category": "force",
         "description": "Pay 5 coins to make all other targets lose 1 influence.",
-        "image": "images/general.png"
+        "image": "images/general.JPG"
       },
       {
         "name": "Guerrilla",
         "category": "force",
         "description": "Pay 4 coins to make a target lose 1 influence.",
-        "image": "images/guerrilla.png"
+        "image": "images/guerrilla.JPG"
       },
       {
         "name": "Judge",
         "category": "force",
         "description": "Give 3 coins to a target, forcing them to lose a life. If countered or challenged successfully, the target keeps the 3 coins.",
-        "image": "images/judge.png"
+        "image": "images/judge.JPG"
       },
       {
         "name": "Mercenary",
         "category": "force",
         "description": "Pay 3 coins to place a Disappear token on a target. That target loses 1 influence after their next turn.",
-        "image": "images/mercenary.png"
+        "image": "images/mercenary.JPG"
       }
     ]
   }
